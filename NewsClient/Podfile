@@ -1,0 +1,5 @@
+pod 'AFNetworking'
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'FDFullscreenPopGesture'
+pod 'SDWebImage'
