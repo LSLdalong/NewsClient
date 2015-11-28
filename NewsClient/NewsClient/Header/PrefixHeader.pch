@@ -13,7 +13,10 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "URL.h"
 #import "TopScrollView.h"
+#import <UIImageView+WebCache.h>
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define LABELWIDTH SCREENWIDTH/5
 #endif /* PrefixHeader_pch */

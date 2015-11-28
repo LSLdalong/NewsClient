@@ -5,7 +5,7 @@
 //  Created by 大龙 on 15/11/26.
 //  Copyright © 2015年 大龙. All rights reserved.
 //
-#define LABELWIDTH SCREENWIDTH/5
+
 
 #import "TopScrollView.h"
 
@@ -31,7 +31,7 @@
 -(void)addLabelViews{
     self.contentSize = CGSizeMake(LABELWIDTH * 8, 0);
     self.showsHorizontalScrollIndicator = NO;
-    self.pagingEnabled = YES;
+   // self.pagingEnabled = YES;
     NSArray *headLabelArray = @[@"头条",@"NBA",@"手机",@"移动互联",@"娱乐",@"时尚",@"电影",@"科技"];
 //    for (int i = 0; i < headLabelArray.count; i++) {
 //        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * LABELWIDTH, 0, LABELWIDTH, self.bounds.size.height)];
@@ -50,16 +50,29 @@
      */
     for (int i = 0; i < headLabelArray.count; i++) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * LABELWIDTH, 0, LABELWIDTH, self.bounds.size.height)];
+        button.tag = 200+i;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
         [button setTitle:headLabelArray[i] forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:12];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         
         if (i == 0) {
-            button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
+            button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        }
+        else{
+            button.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
         }
         [self addSubview:button];
     }
     
     
 }
+-(void)buttonAction:(UIButton *)button{
+    __weak typeof(self) weakSelf = self;
+    NSInteger index =  [weakSelf.subviews indexOfObject:button];
+
+    self.buttonJump(index);
+}
+
 @end

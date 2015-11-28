@@ -90,7 +90,8 @@
 
 @property (nonatomic,copy) NSString *wap_portal;
 @property (nonatomic,copy) NSString *live_info;
-@property (nonatomic,copy) NSString *ads;
+//@property (nonatomic,copy) NSString *ads;
+@property (nonatomic,copy) NSArray *ads;
 @property (nonatomic,copy) NSString *videosource;
 
 @end

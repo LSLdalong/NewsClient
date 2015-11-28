@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsTableViewController : UITableViewController
-
+/**
+ *  url
+ */
+@property (nonatomic,strong) NSString *urlString;
+/**
+ *  标题
+ */
+@property (nonatomic,strong) NSString *headline;
 @end

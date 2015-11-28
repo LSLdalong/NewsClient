@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F43B57FE1C09476A00A3F40B /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B57FD1C09476A00A3F40B /* PageCell.m */; };
+		F43B58011C0953C800A3F40B /* AdsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B58001C0953C800A3F40B /* AdsModel.m */; };
+		F46496991C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F46496981C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf */; };
+		F464969B1C07FD4400939C8A /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = F464969A1C07FD4400939C8A /* NewsURLs.plist */; };
 		F4B401161C0597C60045CADB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B401151C0597C60045CADB /* main.m */; };
 		F4B401191C0597C60045CADB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B401181C0597C60045CADB /* AppDelegate.m */; };
 		F4B4011C1C0597C60045CADB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B4011B1C0597C60045CADB /* ViewController.m */; };
@@ -44,6 +48,12 @@
 		0BC9B3013DF0824B15B12C4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A2ACE2C1D96A58DB3A2B9E50 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D7FA3F2ACDDE08B0C5F52209 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F43B57FC1C09476A00A3F40B /* PageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCell.h; sourceTree = "<group>"; };
+		F43B57FD1C09476A00A3F40B /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCell.m; sourceTree = "<group>"; };
+		F43B57FF1C0953C800A3F40B /* AdsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdsModel.h; path = NewsClient/Cell/AdsModel.h; sourceTree = SOURCE_ROOT; };
+		F43B58001C0953C800A3F40B /* AdsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdsModel.m; path = NewsClient/Cell/AdsModel.m; sourceTree = SOURCE_ROOT; };
+		F46496981C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "网易新闻抓包API  童裔旺.pdf"; sourceTree = "<group>"; };
+		F464969A1C07FD4400939C8A /* NewsURLs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsURLs.plist; sourceTree = "<group>"; };
 		F4B401111C0597C50045CADB /* NewsClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B401151C0597C60045CADB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F4B401171C0597C60045CADB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NewsClient/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -142,6 +152,8 @@
 		F4B401131C0597C60045CADB /* NewsClient */ = {
 			isa = PBXGroup;
 			children = (
+				F46496981C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf */,
+				F464969A1C07FD4400939C8A /* NewsURLs.plist */,
 				F4D321BA1C05BB6900750DE3 /* AppDelegate */,
 				F4B401471C059AE40045CADB /* Header */,
 				F4B4014A1C059B190045CADB /* URL */,
@@ -224,6 +236,8 @@
 			children = (
 				F4D321C51C06ECE400750DE3 /* NewsModel.h */,
 				F4D321C61C06ECE400750DE3 /* NewsModel.m */,
+				F43B57FF1C0953C800A3F40B /* AdsModel.h */,
+				F43B58001C0953C800A3F40B /* AdsModel.m */,
 			);
 			name = Model;
 			path = ../Model;
@@ -253,6 +267,8 @@
 			children = (
 				F4D321C21C06B7D900750DE3 /* NewsTableViewCell.h */,
 				F4D321C31C06B7D900750DE3 /* NewsTableViewCell.m */,
+				F43B57FC1C09476A00A3F40B /* PageCell.h */,
+				F43B57FD1C09476A00A3F40B /* PageCell.m */,
 			);
 			name = Cell;
 			path = ../Cell;
@@ -391,6 +407,8 @@
 			files = (
 				F4B401241C0597C60045CADB /* LaunchScreen.storyboard in Resources */,
 				F4B401211C0597C60045CADB /* Assets.xcassets in Resources */,
+				F464969B1C07FD4400939C8A /* NewsURLs.plist in Resources */,
+				F46496991C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf in Resources */,
 				F4B4011F1C0597C60045CADB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,10 +482,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43B58011C0953C800A3F40B /* AdsModel.m in Sources */,
 				F4B4011C1C0597C60045CADB /* ViewController.m in Sources */,
 				F4D321C41C06B7D900750DE3 /* NewsTableViewCell.m in Sources */,
 				F4D321CD1C06F41D00750DE3 /* NewsTableViewController.m in Sources */,
 				F4D321D41C0728C000750DE3 /* DetailViewController.m in Sources */,
+				F43B57FE1C09476A00A3F40B /* PageCell.m in Sources */,
 				F4B401191C0597C60045CADB /* AppDelegate.m in Sources */,
 				F4B401161C0597C60045CADB /* main.m in Sources */,
 				F4D321C71C06ECE400750DE3 /* NewsModel.m in Sources */,

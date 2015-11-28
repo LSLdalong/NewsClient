@@ -7,7 +7,7 @@
 //
 
 #import "NewsTableViewCell.h"
-#import <UIImageView+WebCache.h>
+
 @interface NewsTableViewCell()
 /**
  *  第一张图片
@@ -40,7 +40,8 @@
  */
 +(NSString *)idForRow:(NewsModel *)newsModel;
 {
-    if (newsModel.hasHead && newsModel.photosetID) {
+#if 0
+    if ( newsModel.hasHead &&newsModel.photosetID) {
         return @"TopImageCell";
     }else if (newsModel.hasHead){
         return @"TopTxtCell";
@@ -51,7 +52,22 @@
     }else{
         return @"NewsCell";
     }
- 
+#else
+    if (newsModel.hasHead &&(newsModel.ads!= nil)) {
+        return @"PageCell";
+    }
+    else if ( newsModel.hasHead &&newsModel.photosetID) {
+        return @"TopImageCell";
+    }else if (newsModel.hasHead){
+        return @"TopTxtCell";
+    }else if (newsModel.imgType){
+        return @"BigImageCell";
+    }else if (newsModel.imgextra){
+        return @"ImagesCell";
+    }else{
+        return @"NewsCell";
+    }
+#endif
 }
 /**
  *  类方法返回行高
