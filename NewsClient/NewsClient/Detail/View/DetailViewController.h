@@ -10,4 +10,9 @@
 #import "NewsModel.h"
 @interface DetailViewController : UIViewController
 @property (nonatomic,strong)NewsModel *newsModel;
+
+
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 @end

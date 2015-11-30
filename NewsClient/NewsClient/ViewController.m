@@ -9,11 +9,14 @@
 #import "ViewController.h"
 #import "NewsTableViewController.h"
 #import <MJRefresh.h>
+#import "WeatherViewController.h"
 #define  dalong 1
 @interface ViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet TopScrollView *topScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *bigScrollView;
+@property (nonatomic,strong) WeatherViewController *weatherVC;
+@property (nonatomic,assign)BOOL weatherShow;
 /**
  *  如果加载过就设置为1
  */
@@ -29,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setButtons];
     [self addController];
     self.bigScrollView.delegate = self;
     self.bigScrollView.contentSize = CGSizeMake(self.childViewControllers.count * [UIScreen mainScreen].bounds.size.width, 0);
@@ -40,10 +44,16 @@
     UIViewController *VC = [self.childViewControllers firstObject];
     VC.view.frame = self.bigScrollView.bounds;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    /**
+     *  把scroll 的scrollsToTop设置为no
+     */
+    self.topScrollView.scrollsToTop = NO;
+    self.bigScrollView.scrollsToTop = NO;
+
 
 
     [self.bigScrollView addSubview:VC.view];
+    
     __weak typeof(self) weakSelf = self;
     self.topScrollView.buttonJump = ^(NSInteger index){
         NSLog(@"%ld",index);
@@ -65,11 +75,62 @@
         
         CGPoint point = CGPointMake(index * self.bigScrollView.bounds.size.width, 0);
         self.bigScrollView.contentOffset = point;
+        [self setTopToYes:index];
     };
     
     
     // Do any additional setup after loading the view, typically from a nib.
 
+}
+/**
+ *  懒加载weatherVC
+ *
+ */
+-(WeatherViewController *)weatherVC{
+    if (_weatherVC == nil) {
+        _weatherVC = [self.storyboard instantiateViewControllerWithIdentifier:@"weather"];
+        _weatherVC.view.alpha = 0.8;
+        [self.view addSubview:_weatherVC.view];
+        _weatherVC.view.hidden = YES;
+        self.weatherShow = NO;
+        
+    }
+    return _weatherVC;
+}
+
+/**
+ *  懒加载weatherShow
+ */
+
+
+/**
+ *  设置tabbar的Button
+ *
+ *  @return NO
+ */
+-(void)setButtons{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"top_navigation_square"] style:UIBarButtonItemStyleDone target:self action:@selector(pushToWeather)];
+    [rightButton setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
+/**
+ *  跳转到天气界面
+ *
+ *  @return NO
+ */
+-(void)pushToWeather{
+    if (self.weatherShow) {
+        self.weatherVC.view.hidden = YES;
+        self.weatherShow = NO;
+        
+    }
+    else{
+        self.weatherVC.view.hidden = NO;
+        self.weatherShow = YES;
+        
+    }
+    
+    
 }
 
 /**
@@ -147,8 +208,29 @@
      */
     [self changetopScrollViews:index];
     [self changeFont:index];
+    [self setTopToYes:index];
     NewsTableViewController *newsTVC = self.childViewControllers[index];
     newsTVC.view.frame = self.bigScrollView.bounds;
     [self.bigScrollView addSubview:newsTVC.view];
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    for (NewsTableViewController *VC in self.childViewControllers) {
+       // VC.tableView.scrollsToTop = NO;
+        VC.tableView.hidden = NO;
+    }
+}
+
+/**
+ *  把当前tableview 的ScrolltoTop设置为yes
+ */
+-(void)setTopToYes:(NSInteger) index
+{
+    for (NewsTableViewController *VC in self.childViewControllers) {
+        VC.tableView.scrollsToTop = NO;
+        VC.tableView.hidden = YES;
+    }
+    NewsTableViewController *VC1 = self.childViewControllers[index];
+    VC1.tableView.scrollsToTop = YES;
+    VC1.tableView.hidden = NO;
 }
 @end

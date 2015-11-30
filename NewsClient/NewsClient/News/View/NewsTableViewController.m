@@ -10,8 +10,8 @@
 #import "NewsModel.h"
 #import "NewsTableViewCell.h"
 #import "DetailViewController.h"
-#import <MJRefresh.h>
-#import <MJExtension.h>
+#import "PhotoViewController.h"
+
 #import "AdsModel.h"
 #import "PageCell.h"
 @interface NewsTableViewController()<UIScrollViewDelegate>
@@ -39,6 +39,7 @@
    // self.tableView.backgroundColor = [UIColor greenColor];
     //self.view.backgroundColor = [UIColor cyanColor];
     [self.tableView.mj_header beginRefreshing];
+
     /**
      *  加载数据
      */
@@ -55,6 +56,45 @@
      */
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
+
+/**
+ *  增加轮播图手势
+ */
+-(void)addTaps{
+#if 0
+    for (int i = 0; i < self.adsArray.count + 1; i++) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+        [self.scroll.subviews[i+1] addGestureRecognizer:tap];
+        //打开交互,imageview会阻断
+        self.scroll.subviews[i].userInteractionEnabled = YES;
+    }
+#else
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [self.scroll addGestureRecognizer:tap];
+   // self.scroll.userInteractionEnabled = YES;
+#endif
+    
+}
+/**
+ *  点击跳转
+ */
+-(void)tapAction{
+    NSInteger phoneNum =  self.scroll.contentOffset.x / self.scroll.frame.size.width - 1;
+    NewsModel *newsModel = self.arrayNews[0];
+    
+    PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoVC"];
+    if (phoneNum == 0) {
+        photoVC.photoSetID = newsModel.photosetID;
+        photoVC.name = newsModel.title;
+    } else {
+        AdsModel *adsModel = newsModel.ads[phoneNum - 1];
+        photoVC.photoSetID = adsModel.url;
+        photoVC.name = adsModel.title;
+    }
+    
+    [self presentViewController:photoVC animated:NO completion:nil];
+    
+}
 #pragma mark ----上拉下拉加载数据 ----
 /**
  *  下拉刷新
@@ -68,7 +108,7 @@
 //    dispatch_after(time, dispatch_get_main_queue(), ^{
 //        [self.tableView.mj_header endRefreshing];
 //    });
-   [self.tableView.mj_header endRefreshing];
+  //  [self.tableView.mj_header endRefreshing];
     
 }
 /**
@@ -87,7 +127,7 @@
 //        [self.tableView.mj_footer endRefreshing];
 //    });
     
-    [self.tableView.mj_footer endRefreshing];
+   // [self.tableView.mj_footer endRefreshing];
     
 
 }
@@ -127,6 +167,7 @@
             if (type == 1) {
                 self.arrayNews = arrayM;
                 
+                
             }
             else if(type == 2){
                 [self.arrayNews addObjectsFromArray:arrayM];
@@ -151,7 +192,15 @@
  */
 
 -(void)reloadDatas{
+    //[self.tableView.mj_footer endRefreshing];
+    /**
+     *  增加轮播图手势
+     */
+    [self addTaps];
+    
     [self.tableView reloadData];
+    [self.tableView.mj_header endRefreshing];
+     [self.tableView.mj_footer endRefreshing];
 }
 #pragma mark ----设置tableview ----
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -168,8 +217,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NewsModel *newsModel = self.arrayNews[indexPath.row];
-    NSLog(@"%ld",indexPath.row);
-    NSString *cell_id = [NewsTableViewCell idForRow:newsModel];
+  //  NSLog(@"%ld",indexPath.row);
+    NSString *cell_id = [NewsTableViewCell idForRow:newsModel index:indexPath.row];
     if ([cell_id isEqualToString:@"PageCell"]) {
         PageCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
         [cell setPropertyOfCell:newsModel Number:(newsModel.ads.count)];
@@ -188,6 +237,7 @@
         
         self.label = cell.label;
         self.adsArray = newsModel.ads;
+        
         /**
          *  增加定时器
          */
@@ -209,29 +259,8 @@
     
 }
 
-/**
- *  定时器改变图片
- */
-//-(void)nextImage{
-//    static NSInteger i = 0;
-//    if (i == self.adsArray.count) {
-//        i = 0;
-//        self.scroll.contentOffset = CGPointMake(self.scroll.frame.size.width *i, 0);
-//        return;
-//    }
-//    self.scroll.contentOffset = CGPointMake(self.scroll.frame.size.width *(i+1), 0);
-//    self.pageC.currentPage = i+1;
-//    if (i == 0 ) {
-//        self.label.text = self.text;
-//    }
-//    else{
-//        
-//        self.label.text =((AdsModel *)(self.adsArray[i])).title;
-//    }
 
-//    i++;
-//
-//}
+
 
 /**
  *  轮播图的代理方法
@@ -302,10 +331,22 @@
  */
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSInteger row = self.tableView.indexPathForSelectedRow.row;
     if ([segue.destinationViewController isKindOfClass:[DetailViewController class]]) {
-        DetailViewController *detailVC = segue.destinationViewController;
-        NSInteger row = self.tableView.indexPathForSelectedRow.row;
-        detailVC.newsModel = self.arrayNews[row];
+       // DetailViewController *detailVC = segue.destinationViewController;
+    
+        
+            DetailViewController *detailVC = segue.destinationViewController;
+            detailVC.newsModel = self.arrayNews[row];
+        }
+    else if ([segue.destinationViewController isKindOfClass:[PhotoViewController class]]) {
+        PhotoViewController *photoVC = segue.destinationViewController;
+        photoVC.newsModel = self.arrayNews[row];
+        photoVC.photoSetID = photoVC.newsModel.photosetID;
+        photoVC.name = photoVC.newsModel.title;
     }
 }
+
+
+//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 @end

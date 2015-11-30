@@ -14,6 +14,8 @@
 #import "URL.h"
 #import "TopScrollView.h"
 #import <UIImageView+WebCache.h>
+#import <MJRefresh.h>
+#import <MJExtension.h>
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height

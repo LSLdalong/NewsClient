@@ -12,7 +12,7 @@
 
 @property (nonatomic,strong) NewsModel *newsModel;
 //返回不同的cell
-+(NSString *)idForRow:(NewsModel *)newsModel;
++(NSString *)idForRow:(NewsModel *)newsModel index:(NSInteger)index;
 //返回不同的行高
 + (CGFloat)heightForRow:(NewsModel *)newsModel;
 

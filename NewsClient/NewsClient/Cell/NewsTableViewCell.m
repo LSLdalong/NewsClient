@@ -38,7 +38,7 @@
  *  返回不同的cell类型
  *
  */
-+(NSString *)idForRow:(NewsModel *)newsModel;
++(NSString *)idForRow:(NewsModel *)newsModel index:(NSInteger)index;
 {
 #if 0
     if ( newsModel.hasHead &&newsModel.photosetID) {
@@ -53,7 +53,7 @@
         return @"NewsCell";
     }
 #else
-    if (newsModel.hasHead &&(newsModel.ads!= nil)) {
+    if (newsModel.hasHead &&(newsModel.ads!= nil)&&index == 0) {
         return @"PageCell";
     }
     else if ( newsModel.hasHead &&newsModel.photosetID) {

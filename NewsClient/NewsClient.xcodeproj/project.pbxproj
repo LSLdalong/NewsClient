@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		F43B57FE1C09476A00A3F40B /* PageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B57FD1C09476A00A3F40B /* PageCell.m */; };
 		F43B58011C0953C800A3F40B /* AdsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F43B58001C0953C800A3F40B /* AdsModel.m */; };
+		F44B70FA1C0C1B5100E448E5 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B70F91C0C1B5100E448E5 /* WeatherViewController.m */; };
+		F44B70FD1C0C1F7300E448E5 /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B70FC1C0C1F7300E448E5 /* WeatherModel.m */; };
+		F44B71001C0C22A400E448E5 /* WeatherDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B70FF1C0C22A400E448E5 /* WeatherDetailModel.m */; };
+		F44B71061C0C484700E448E5 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B71051C0C484700E448E5 /* PhotoViewController.m */; };
+		F44B710C1C0C642300E448E5 /* PhotoDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F44B710B1C0C642300E448E5 /* PhotoDetailModel.m */; };
 		F46496991C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F46496981C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf */; };
 		F464969B1C07FD4400939C8A /* NewsURLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = F464969A1C07FD4400939C8A /* NewsURLs.plist */; };
 		F4B401161C0597C60045CADB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B401151C0597C60045CADB /* main.m */; };
@@ -52,6 +57,16 @@
 		F43B57FD1C09476A00A3F40B /* PageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCell.m; sourceTree = "<group>"; };
 		F43B57FF1C0953C800A3F40B /* AdsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdsModel.h; path = NewsClient/Cell/AdsModel.h; sourceTree = SOURCE_ROOT; };
 		F43B58001C0953C800A3F40B /* AdsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdsModel.m; path = NewsClient/Cell/AdsModel.m; sourceTree = SOURCE_ROOT; };
+		F44B70F81C0C1B5100E448E5 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		F44B70F91C0C1B5100E448E5 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		F44B70FB1C0C1F7300E448E5 /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
+		F44B70FC1C0C1F7300E448E5 /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
+		F44B70FE1C0C22A400E448E5 /* WeatherDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDetailModel.h; sourceTree = "<group>"; };
+		F44B70FF1C0C22A400E448E5 /* WeatherDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDetailModel.m; sourceTree = "<group>"; };
+		F44B71041C0C484700E448E5 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		F44B71051C0C484700E448E5 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		F44B710A1C0C642300E448E5 /* PhotoDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailModel.h; sourceTree = "<group>"; };
+		F44B710B1C0C642300E448E5 /* PhotoDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailModel.m; sourceTree = "<group>"; };
 		F46496981C07FCE600939C8A /* 网易新闻抓包API  童裔旺.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "网易新闻抓包API  童裔旺.pdf"; sourceTree = "<group>"; };
 		F464969A1C07FD4400939C8A /* NewsURLs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsURLs.plist; sourceTree = "<group>"; };
 		F4B401111C0597C50045CADB /* NewsClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +142,62 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F44B70F61C0C1B5100E448E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F44B70FB1C0C1F7300E448E5 /* WeatherModel.h */,
+				F44B70FC1C0C1F7300E448E5 /* WeatherModel.m */,
+				F44B70FE1C0C22A400E448E5 /* WeatherDetailModel.h */,
+				F44B70FF1C0C22A400E448E5 /* WeatherDetailModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F44B70F71C0C1B5100E448E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F44B70F81C0C1B5100E448E5 /* WeatherViewController.h */,
+				F44B70F91C0C1B5100E448E5 /* WeatherViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F44B71011C0C482500E448E5 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				F44B71021C0C482500E448E5 /* Model */,
+				F44B71031C0C482500E448E5 /* VIew */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		F44B71021C0C482500E448E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F44B710A1C0C642300E448E5 /* PhotoDetailModel.h */,
+				F44B710B1C0C642300E448E5 /* PhotoDetailModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F44B71031C0C482500E448E5 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				F44B71041C0C484700E448E5 /* PhotoViewController.h */,
+				F44B71051C0C484700E448E5 /* PhotoViewController.m */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		F45859841C0BF89B0019C3E5 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F44B70F61C0C1B5100E448E5 /* Model */,
+				F44B70F71C0C1B5100E448E5 /* View */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		F4B401081C0597C50045CADB = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +230,9 @@
 				F4B4014A1C059B190045CADB /* URL */,
 				F4B401481C059AF40045CADB /* Main */,
 				F4D321BF1C06AF9D00750DE3 /* News */,
+				F45859841C0BF89B0019C3E5 /* Weather */,
 				F4D321CE1C07285100750DE3 /* Detail */,
+				F44B71011C0C482500E448E5 /* Photo */,
 				F4B401201C0597C60045CADB /* Assets.xcassets */,
 				F4B401221C0597C60045CADB /* LaunchScreen.storyboard */,
 				F4B401251C0597C60045CADB /* Info.plist */,
@@ -483,15 +556,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F43B58011C0953C800A3F40B /* AdsModel.m in Sources */,
+				F44B710C1C0C642300E448E5 /* PhotoDetailModel.m in Sources */,
 				F4B4011C1C0597C60045CADB /* ViewController.m in Sources */,
 				F4D321C41C06B7D900750DE3 /* NewsTableViewCell.m in Sources */,
 				F4D321CD1C06F41D00750DE3 /* NewsTableViewController.m in Sources */,
+				F44B70FA1C0C1B5100E448E5 /* WeatherViewController.m in Sources */,
 				F4D321D41C0728C000750DE3 /* DetailViewController.m in Sources */,
+				F44B70FD1C0C1F7300E448E5 /* WeatherModel.m in Sources */,
 				F43B57FE1C09476A00A3F40B /* PageCell.m in Sources */,
 				F4B401191C0597C60045CADB /* AppDelegate.m in Sources */,
 				F4B401161C0597C60045CADB /* main.m in Sources */,
 				F4D321C71C06ECE400750DE3 /* NewsModel.m in Sources */,
 				F4D321BD1C06999600750DE3 /* TopScrollView.m in Sources */,
+				F44B71001C0C22A400E448E5 /* WeatherDetailModel.m in Sources */,
+				F44B71061C0C484700E448E5 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

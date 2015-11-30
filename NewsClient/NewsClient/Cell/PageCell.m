@@ -11,6 +11,10 @@
 @implementation PageCell
 -(void)setPropertyOfCell:(NewsModel *)model
                   Number:(NSInteger)number{
+   // NSLog(@"+++++++++%ld",self.scroll.subviews.count);
+    for (UIView *view in self.scroll.subviews) {
+        [view removeFromSuperview];
+    }
     self.scroll.contentSize =CGSizeMake(self.scroll.frame.size.width * (number+1+2), 0);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.scroll.frame.size.width, 0, self.scroll.frame.size.width, self.scroll.frame.size.height)];
     [imageView sd_setImageWithURL:[NSURL URLWithString:model.imgsrc]];
